@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = "mongodb+srv://glinotg:projeto123@shopper.8ddxb.mongodb.net/shopper?retryWrites=true&w=majority&appName=shopper"
+}
+
+model Driver {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  driver_id      Float    
+  name           String
+  description    String
+  car            String
+  rating         Float
+  comment        String
+  feePerKm       Float
+  minFee         Float
+}
+
+model Ride {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  customer_id    String
+  origin         String
+  destination    String
+  distance       Float
+  duration       String
+  driver_id      Float
+  driver_name    String
+  value          Float
+  created_at     DateTime
+}
+
+
+
+

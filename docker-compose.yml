@@ -1,0 +1,17 @@
+services:
+  shopper:
+    build: ./shopper
+    command: npm run dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./shopper:/usr/src/app
+    working_dir: /usr/src/app
+  shopper-ui:
+    build: ./shopper-ui
+    command: npm run dev
+    ports:
+      - "80:80"
+    volumes:
+      - ./shopper-ui:/usr/src/app
+    working_dir: /usr/src/app
